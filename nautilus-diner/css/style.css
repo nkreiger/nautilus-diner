@@ -1,0 +1,945 @@
+
+* {
+	box-sizing: border-box;
+}
+/* body style */
+body {
+font-size: 16px;
+background-color: #ffbb99;
+border: 8px solid red;
+margin: 0px;
+
+}
+.color-one {
+	border: 8px solid white;
+}
+.color-two {
+	border: 8px solid black;
+}
+/* end body style */
+
+/* header style */
+
+#number {
+	position: static;
+	margin-top: -45px;
+	font-style: italic;
+	z-index: 20;
+
+
+}
+#telephone-number {
+	color: black;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#navbar-center li {
+	text-align: center;
+}
+
+
+/* end header style */
+
+/* Home page styles */
+
+#homeTextTile  {
+	text-align: center;
+}
+#homeTextTile h3 {
+	margin-top: 30px;
+	font-style: italic;
+	font-size: 30px;
+
+}
+
+#homeTextTile h1 {
+	margin-top: 40px;
+	font-weight: bold;
+	font-size: 70px;
+}
+
+
+#dinerImage {
+	
+	margin-top: 70px;
+	margin-left: 15px;
+	margin-right: 15px;
+
+}
+#home-tiles {
+	
+	
+	}
+#menu-tile, #contact-tile, #map-tile {
+	height: 300px;
+	width: 300px;
+	margin-bottom: 15px;
+	position: relative;
+	border: 2px solid black;
+	overflow: hidden;
+	margin-top: 70px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#menu-tile:hover, #contact-tile:hover, #map-tile:hover {
+	box-shadow: 0 1px 5px 1px #cccccc;
+}
+#menu-tile {
+	background: url('../images/newRochelleDinerMenu.png') no-repeat;
+	background-position: center;
+
+}
+
+#contact-tile {
+	background: url('../images/newRochelleDinerContactUs.png') no-repeat;
+	background-position: center;
+}
+
+#menu-tile span, #contact-tile span, #map-tile span {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 1.6em;
+	text-transform: uppercase;
+	background-color: #000;
+	color: #fff;
+	opacity: 0.8;
+}
+
+#testimonials {
+	text-align: center;
+	margin-top: 65px;
+	margin-bottom: 20px;
+}
+
+#testimonials div {
+	margin-top: 30px;
+}
+#testimonials div q {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 1em;
+  padding: 80px 50px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  color: black;
+  letter-spacing: .1em;
+  
+  }
+  
+  #animate2:hover {
+
+  	background-color:  #d9d9d9;
+  }
+
+  .dropdown-menu li {
+	margin-top: 2px;
+	text-align: center;
+}
+/* end home page styles */
+
+/* full menu page stules */
+
+#fullMenuImages hr {
+	margin-top: 35px;
+	margin-bottom: 35px;
+	border: 3px solid black;
+	width: 75%;
+
+}
+
+
+#fullMenuNumber {
+  display: block;
+  max-width: 78%;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  background-color: red;
+  text-align: center;
+  margin-top: 35px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#fullMenuNumber:before, #fullMenuNumber:after {
+  pointer-events: none;
+  position: absolute;
+  content: '';
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  height: 5px;
+  opacity: 0;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+#fullMenuNumber:before {
+  bottom: 100%;
+  background: -webkit-radial-gradient(50% 150%, ellipse, rgba(0, 0, 0, 0.6) 0%, transparent 80%);
+  background: radial-gradient(ellipse at 50% 150%, rgba(0, 0, 0, 0.6) 0%, transparent 80%);
+}
+#fullMenuNumber:after {
+  top: 100%;
+  background: -webkit-radial-gradient(50% -50%, ellipse, rgba(0, 0, 0, 0.6) 0%, transparent 80%);
+  background: radial-gradient(ellipse at 50% -50%, rgba(0, 0, 0, 0.6) 0%, transparent 80%);
+}
+#fullMenuNumber:hover:before, #fullMenuNumber:focus:before, #fullMenuNumber:active:before, #fullMenuNumber:hover:after, #fullMenuNumber:focus:after, #fullMenuNumber:active:after {
+  opacity: 1;
+}
+
+
+#full-menu-telephone-number {
+	color: black;
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	
+
+}
+
+
+
+
+/* end full menu page styles */
+
+/* contact us style */
+
+#contactHeader {
+	text-align: center;
+}
+
+
+
+div.col-sm-8 {
+	margin-top: 30px;
+}
+
+div.form-group.col-sm-10 {
+	margin-top: 30px;
+}
+
+#contactNumber {
+	margin-top: 50px;
+	position: absolute;
+
+
+}
+
+#contactEmail {
+	position: absolute;
+	margin-top: 116px;
+}
+
+#contactEmail a #email, #contactNumber a #telephone-number {
+	font-size: 18px;
+	color: black;
+	font-weight: bold;
+}
+
+#contactNumber {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+#contactNumber:hover, #contactNumber:focus, #contactNumber:active {
+	background-color: white;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+#contactEmail {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+#contactEmail:hover, #contactEmail:focus, #contactEmail:active {
+	background-color: white;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+
+/* end contact us style */
+/*about page styles */
+
+#story {
+	border: 2px solid black;
+	text-align: center;
+	background-color: white;
+	opacity: 0.8;
+	margin-top: 50px;
+	margin-left: 10%;
+	margin-right: 10%
+
+
+
+
+}
+#story h1 {
+	font-weight: bold;
+}
+#story p{
+	width: 75%;
+	word-wrap: break-word;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 20px;
+}
+
+
+
+#founderPicture {
+	width: 200px;
+	height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#founderRow {
+	margin-top: 150px;
+	margin-bottom: -75px;
+
+}
+
+
+#description {
+	text-align: center;
+}
+
+
+
+/* end about page styles */
+/* footer style */
+.panel-footer {
+	margin-top: 70px;
+	color: white;
+	background-color: black;
+	border: none;
+	text-align: center;
+}
+
+#address a {
+	text-decoration: none;
+	color: white;
+}
+
+#address a:hover {
+	color: orange;
+}
+
+
+/* end footer style */
+
+
+
+
+/* style by media structure --> Biggest to Smallest */
+@media (min-width: 1200px) {
+	/* body style */
+body {
+
+}
+/* end body style */
+
+/* header style */
+
+ul.nav.navbar-nav li {
+	margin-left: 160px;
+	}
+
+
+
+
+
+
+/* end header style */
+
+/* Home page styles */
+
+#dinerImageInside {
+	margin-left: auto;
+	margin-right: auto;
+	border: 8px solid black;
+}
+
+
+#map-tile {
+	margin-left: 425px;
+}
+
+#animate {
+	display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+#animate:before {
+	content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: black;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+#animate:hover:before, #animate:focus:before, #animate:active:before {
+	left: 0;
+	right: 0;
+}
+
+/* end home page styles */
+
+
+/* contact page styles */
+
+#contactNumber {
+	margin-top: 55px;
+	position: absolute;
+	margin-left: 120px;
+	
+
+}
+
+#contactEmail {
+	position: absolute;
+	margin-top: 116px;
+	margin-left: 120px;
+}
+
+
+/* end contact page styles */
+
+
+
+/* about page */
+#founderPicture {
+	width: 300px;
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* end about page */
+
+
+
+
+
+
+
+
+
+/* footer style */
+
+
+
+
+
+
+
+
+/* end footer style */
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	/* body style */
+body {
+
+}
+/* end body style */
+
+/* header style */
+
+ul.nav.navbar-nav li {
+	margin-left: 120px;
+	}
+
+#dropdown-list li {
+	margin-top: 5px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+
+/* end header style */
+
+/* Home page styles */
+
+#dinerImageInside {
+	border: 8px solid black;
+}
+
+
+
+#map-tile {
+	margin-left: 300px;
+}
+
+#animate {
+	display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+#animate:before {
+	content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: black;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+#animate:hover:before, #animate:focus:before, #animate:active:before {
+	left: 0;
+	right: 0;
+}
+
+
+
+
+
+/* end home page styles */
+
+
+/* contact page styles */
+#contactNumber {
+	margin-top: 55px;
+	position: absolute;
+	margin-left: 50px;
+	
+
+}
+
+#contactEmail {
+	position: absolute;
+	margin-top: 116px;
+	margin-left: 50px;
+}
+
+/* end contact page styles */
+
+
+
+/* about apge styles */
+#founderPicture {
+	width: 300px;
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* end about page */
+
+
+
+
+
+
+
+
+
+/* footer style */
+
+
+
+
+
+
+
+
+/* end footer style */
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	/* body style */
+body {
+
+}
+/* end body style */
+
+/* header style */
+
+ul.nav.navbar-nav li {
+	margin-left: 64px;
+	}
+
+#dropdown-list li {
+	margin-top: 5px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+
+
+/* end header style */
+
+/* Home page styles */
+
+
+
+
+#dinerImageInside {
+	border: 8px solid black;
+}
+
+
+#map-tile {
+	margin-left: 200px;
+}
+
+#animate {
+	display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+#animate:before {
+	content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: black;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+#animate:hover:before, #animate:focus:before, #animate:active:before {
+	left: 0;
+	right: 0;
+}
+
+
+
+/* end home page styles */
+
+
+
+/* about page styles */
+#founderPicture {
+	width: 250px;
+	height: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* end about page */
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer style */
+
+
+
+
+
+
+
+
+/* end footer style */
+
+}
+
+@media (max-width: 767px) {
+	/* body style */
+body {
+
+}
+/* end body style */
+
+/* header style */
+#dropdown-list li a {
+	
+	margin-left: -235px;
+}
+#dropdown-list li.divider {
+	display: none;
+}
+/*
+/* end header style */
+
+/* Home page styles */
+
+
+#dinerImageInside {
+	border: 8px solid black;
+}
+
+#menu-tile, #contact-tile, #map-tile {
+	height: 250px;
+	width: 250px;
+	margin-bottom: 15px;
+	position: relative;
+	border: 2px solid black;
+	overflow: hidden;
+	margin-top: 70px;
+}
+
+
+#menu-tile {
+	background: url('../images/newRochelleDinerMenuXS.png') no-repeat;
+	background-position: center;
+}
+
+#contact-tile {
+	background: url('../images/newRochelleDinerContactUsXS.png') no-repeat;
+	background-position: center;
+}
+
+  #animate:hover {
+
+  	background-color:  #d9d9d9;
+  }
+
+
+/* end home page styles */
+
+/* contact page styles */
+
+form {
+	margin-top: 100px;
+}
+
+#contactNumber, #contactEmail {
+	margin-top: -160px;
+	width: 100%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+
+
+}
+#contactNumber {
+float: right;
+clear: both;
+
+}
+
+#contactEmail {
+float: right;
+clear: both;
+}
+
+#contactEmail {
+	margin-top: -170px;
+}
+
+#contactNumber a #telephone-number, #contactEmail a #email {
+	
+	font-size: 17px;
+
+	
+}
+
+#contactEmail:hover, #contactEmail:focus, #contactEmail:active {
+	background-color: white;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+#contactNumber:hover, #contactNumber:focus, #contactNumber:active {
+	background-color: white;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+/* end contact page styles */
+
+/* about page styles */
+
+#description {
+	
+	padding-top: 10px;
+
+}
+
+
+
+
+
+
+
+
+
+
+/* end about page styles */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer style */
+
+
+
+
+
+
+
+
+/* end footer style */
+
+}
+@media (max-width: 650px) {
+	#navbar-center li {
+	float: right;
+	clear: both;
+}
+}
+@media (max-width: 479px) {
+	/* body style */
+body {
+
+}
+/* end body style */
+
+/* header style */
+
+
+
+
+
+
+/* end header style */
+
+/* Home page styles */
+/* full menu page styles */
+
+#full-menu-telephone-number {
+	color: black;
+	font-size: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+	
+
+}
+/* end full menu page styles */
+
+
+#dinerImageInside {
+	border: 8px solid black;
+}
+
+
+
+
+
+
+
+
+/* end home page styles */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer style */
+
+
+
+
+
+
+
+
+/* end footer style */
+
+}
+
+/* end media styles */
+
+
+
+
+
+
+
+
+

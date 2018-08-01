@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html class="vulnerableHTML">
+<head>
+	<title>Cybit Results Page</title>
+	<link rel="stylesheet" type="text/css" href="vulnerable.css" />
+	<link rel="stylesheet" href="formalize.css" />
+	<script src="jquery.js"></script>
+	<script src="jquery.formalize.js"></script>
+	<script language="javascript" type="text/javascript" src="vulnerable.js"></script>
+</head>
+<body class="vulnerableBody">
+		<header>
+		<div class="header">
+			<div class="headerLogo">
+				<img src="cybitLogo.png" alt="cybit logo" title="Logo" class="logo" >
+			</div>
+			<p id="headerText"> Make Security Great Again </p>
+			<div class="headerLinks">
+				<nav>
+				<a href="cybit.html">Home</a>
+				<a href="cybitAbout.html">About</a>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+
+
+
+
+
+
+
+<!-- my google map API key
+	AIzaSyAUGlXYi0IsM7Uq4DV3y0ZqXpWFSUOtrMU
+-->
+<!-- BEGIN JAVASCRIPT -->
+<br />
+<br />
+ <div class="resultMap"> 
+    <div id="map"></div>
+
+
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<table class="resultsTable">
+		<tr>
+			<th colspan="4"><u><p><h3>Results:</h3></p></u></th>
+		</tr>
+		<tbody>
+			<tr>
+				<td><b>Type:</b></td>
+				<td> % Chance of Being Hacked </td>
+				<td> Why? </td>
+				<td> Protect Yourself </td>
+			</tr>
+			<tr>
+				<td style="float: left; border-bottom: none">Username: </td>
+				<td id="user1">percent</td> 
+				<td id="user2">why</td>
+				<td id="user3">help link</td>
+			</tr>
+			<tr>
+				<td style="float: left; border-bottom: none">Password: </td>
+				<td id="pass1">percent</td>
+				<td id="pass2">why</td>
+				<td id="pass3">help link</td>
+			</tr>
+			<tr>
+				<td style="float: left; border-bottom: none">Computer: </td>
+				<td id="comp1">percent</td>
+				<td id="comp2">why</td>
+				<td id="comp3">help link</td>
+			</tr>
+			<tr>
+				<td style="float: left; border-bottom: none">Phone: </td>
+				<td id="phone1">percent</td>
+				<td id="phone2">why</td>
+				<td id="phone3">help link</td>
+			</tr>
+			<tr>
+				<td style="float: left; border-bottom: none">Browser: </td>
+				<td id="brows1">percent</td>
+				<td id="brows2">why</td>
+				<td id="brows3">help link</td>
+			</tr>
+			<tr>
+				<td style="float: left; border-bottom: none">Internet Connection: </td>
+				<td id="intern1">percent</td>
+				<td id="intern2">why</td>
+				<td id="intern3">help link</td>
+			</tr>
+			<tr>
+				<td style="float: left; border-bottom: none"><em>Overall:</em> </td>
+				<td id="over1">percent</td>
+				<td id="over2">Why?</td>
+				<td id="over3">help link</td>
+			</tr>
+
+		</tbody>
+	</table>
+				<script>
+
+function parse_query_string(query) {
+  var vars = query.split("&");
+  var query_string = {};
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    // If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = decodeURIComponent(pair[1]);
+      // If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+      query_string[pair[0]] = arr;
+      // If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(decodeURIComponent(pair[1]));
+    }
+  }
+  return query_string;
+}
+
+
+var query_string = window.location.href;
+var parsed_qs = parse_query_string(query_string);
+// console.log(username);
+console.log(parsed_qs.internetLink);
+console.log(parsed_qs.browserType);
+console.log(parsed_qs.computerModel);
+console.log(parsed_qs.username);
+console.log(parsed_qs.password);
+console.log(parsed_qs.phoneModel);
+console.log(parsed_qs.region);
+console.log(parsed_qs.city);
+console.log(parsed_qs.zipcode);
+console.log(parsed_qs.hackedBefore);
+console.log(parsed_qs.numberOfDevices);
+
+var overallScore = 0;
+
+// begin code for username and passwrod
+var user = document.getElementById('user1');
+var user22 = document.getElementById('user2');
+var user33 = document.getElementById('user3');
+var userResult = parsed_qs.username;
+// user.textContent = parsed_qs.username;
+
+var pass = document.getElementById('pass1');
+var pass22 = document.getElementById('pass2');
+var pass33 = document.getElementById('pass3');
+var passResult = parsed_qs.password;
+// pass1.textContent = parsed_qs.password;
+var universalLink = "Make your password and username great again!";
+var univeralPassLink = "Password Hacks to not get Hacked!";
+var score = 0;
+
+
+// welcome to function city
+function upper_case(str) {
+   regexp = /^[A-Z]/;
+   if (regexp.test(str)) {
+   	return true;
+   }
+   else {
+   	return false;
+   }
+}
+function lower_case(str2) {
+	regexp = /^[a-z]/;
+	if (regexp.test(str2))
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+function countNum(string) {
+	regexp = /^[0-9]/;
+	if (regexp.test(string)) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function countSpecial(strstr) {
+	regexp = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+	if (regexp.test(strstr)) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function checkCase(text) {
+var symbol = 0;
+var lowercase = 0;
+var uppercase = 0;
+var numbers = 0;
+var count = 0;
+// establishes return values
+// begin loop for all values in the string 
+for (i = 0; i < text.length; ++i) {
+	var c = text.charAt(i);
+	var uppercaseResult = upper_case(c);
+	var lowercaseResult = lower_case(c);
+	var numberResult = countNum(c);
+	var specialResult = countSpecial(c);
+	if (uppercaseResult) {
+		++uppercase;
+	}
+	
+	 if (lowercaseResult) {
+		++lowercase;
+	}
+
+	// counts amount of lowercase and uppercase characters in a string
+	// don't need to add it to overall count
+
+	if (specialResult) {
+		++symbol;
+	}
+	// counts symbols in the string and adds it to the overall count to keep the count accurate
+
+	if (numberResult) {
+		++numbers;
+	}
+	// counts numbers in the string and adds it to the overall count to keep the count accurate
+	
+	count = count + 1;
+	// counts characters in the string including lower and upper case, but not including numbers and symbols
+
+   }
+ 	
+   return [count, lowercase, uppercase, numbers, symbol];
+
+}
+
+var returnValues = checkCase(userResult);
+
+var numCount = returnValues[0];
+var lowerCaseCount = returnValues[1]; 
+// end upper and pass function, begin upper and pass if statements
+
+if (((numCount == lowerCaseCount) && (returnValues[2] == 0)) && ((returnValues[3] == 0) && (returnValues[4] == 0))) {
+	score = (2.99/3) * 100;
+	overallScore = 3 + overallScore;
+	user22.textContent = "Choice: Only Lowercase Letters ==> Although any username can easily be hacked in a matter of minutes by a hacker, just using lowercase letters represents an extremely easy target for a potential hacker.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] == returnValues[2]) && (returnValues[1] == 0)) && ((returnValues[3] == 0) && (returnValues[4] == 0))) {
+	score = (2.99/3) * 100;
+	overallScore = 3 + overallScore;
+	user22.textContent = "Choice: Only Uppercase Letters ==> Although any username can easily be hacked in a matter of minutes by a hacker, just using uppercase letters represents an extremely easy target for a potential hacker.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if ((((returnValues[0] <= 8) && (returnValues[0] >= 3)) && (returnValues[1] >= 1)) && ((returnValues[2] >= 1) && ((returnValues[3] == 0) && (returnValues[4] == 0)))) {
+	score = (2.95/3) * 100;
+	overallScore = 2.95 + overallScore;
+	user22.textContent = "Choice: Upper and Lowercase Letters ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing just upper and lower case letters does not differentiate your username enough to present a challenge for hackers. Especially when it is a string with less than 8 values.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if ((((returnValues[0] >= 8) && (returnValues[0] >= 3)) && (returnValues[1] >= 1)) && ((returnValues[2] >= 1) && ((returnValues[3] == 0) && (returnValues[4] == 0)))) {
+	score = (2.90/3) * 100;
+	overallScore = 2.90 + overallScore;
+	user22.textContent = "Choice: Upper and Lowercase Letters ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing just upper and lower case letters does not differentiate your username enough to present a challenge for hackers.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] >= 1) && (returnValues[2] == 0))) && ((returnValues[3] >= 1) && (returnValues[4] == 0)))   {
+	score = (2.95/3) * 100;
+	overallScore = 2.95 + overallScore;
+	user22.textContent = "Choice: Lowercase Letters and Numbers ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing just lowercase letters and numbers does not differentiate your username enough to present a challenge for hackers. Especially when it is a string with less than 8 values.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] >= 1) && (returnValues[2] == 0))) && ((returnValues[3] >= 1) && (returnValues[4] == 0)))   {
+	score = (2.90/3) * 100;
+	overallScore = 2.90 + overallScore;
+	user22.textContent = "Choice: Lowercase Letters and Numbers ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing just lowercase letters and numbers does not differentiate your username enough to present a challenge for hackers.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] == 0) && (returnValues[2] >= 1))) && ((returnValues[3] >= 1) && (returnValues[4] == 0)))   {
+	score = (2.95/3) * 100;
+	overallScore = 2.95 + overallScore;
+	user22.textContent = "Choice: Uppercase Letters and Numbers ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing just uppercase letters and numbers does not differentiate your username enough to present a challenge for hackers. Especially when it is a string with less than 8 values.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] == 0) && (returnValues[2] >= 1))) && ((returnValues[3] >= 1) && (returnValues[4] == 0)))   {
+	score = (2.90/3) * 100;
+	overallScore = 2.90 + overallScore;
+	user22.textContent = "Choice: Uppercase Letters and Numbers ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing just uppercase letters and numbers does not differentiate your username enough to present a challenge for hackers.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+// now do lowercase or uppercase and symbols
+else if (((returnValues[0] <= 8) && ((returnValues[1] >= 1) && (returnValues[2] == 0))) && ((returnValues[3] == 0) && (returnValues[4] >= 1)))   {
+	score = (2.95/3) * 100;
+	overallScore = 2.95 + overallScore;
+	user22.textContent = "Choice: Lowercase Letters and Symbols ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing just lowercase letters and symbols does not differentiate your username enough to present a challenge for hackers. Especially when it is a string with less than 8 values.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] >= 1) && (returnValues[2] == 0))) && ((returnValues[3] == 0) && (returnValues[4] >= 1)))   {
+	score = (2.90/3) * 100;
+	overallScore = 2.90 + overallScore;
+	user22.textContent = "Choice: Lowercase Letters and Symbols ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing just lowercase letters and symbols does not differentiate your username enough to present a challenge for hackers.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] == 0) && (returnValues[2] >= 1))) && ((returnValues[3] == 0) && (returnValues[4] >= 1)))   {
+	score = (2.95/3) * 100;
+	overallScore = 2.95 + overallScore;
+	user22.textContent = "Choice: Uppercase Letters and Symbols ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing just uppercase letters and symbols does not differentiate your username enough to present a challenge for hackers. Especially when it is a string with less than 8 values.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] == 0) && (returnValues[2] >= 1))) && ((returnValues[3] == 0) && (returnValues[4] >= 1)))   {
+	score = (2.90/3) * 100;
+	overallScore = 2.90 + overallScore;
+	user22.textContent = "Choice: Uppercase Letters and Symbols ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing just uppercase letters and symbols does not differentiate your username enough to present a challenge for hackers.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] >= 1) && (returnValues[2] >= 1))) && ((returnValues[3] >= 1) && (returnValues[4] == 0)))   {
+	score = (2.75/3) * 100;
+	overallScore = 2.75 + overallScore;
+	user22.textContent = "Choice: Uppercase, Lowercase, and Numbers ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing uppercase, lowercase, and numbers makes your username harder to crack, but not nearly hard enough with a string value less than 8.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] >= 1) && (returnValues[2] >= 1))) && ((returnValues[3] >= 1) && (returnValues[4] == 0)))   {
+	score = (2.5/3) * 100;
+	overallScore = 2.5 + overallScore;
+	user22.textContent = "Choice: Uppercase, Lowercase, and Numbers ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing uppercase, lowercase, and numbers makes your username harder to crack, but not hard enough for an experienced hacker.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] >= 1) && (returnValues[2] == 0))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (2.25/3) * 100;
+	overallScore = 2.25 + overallScore;
+	user22.textContent = "Choice: Lowercase, Numbers, and Symbols ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing lowercase, numbers, and symbols increases the difficulty for hackers, but a username with a value larger than 8 is more effective.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] >= 1) && (returnValues[2] == 0))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (2/3) * 100;
+	overallScore = 2 + overallScore;
+	user22.textContent = "Choice: Lowercase, Numbers, and Symbols ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing lowercase, numbers, and symbols increases the difficulty for hackers, but it is not the most efficient username.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[2] >= 1) && (returnValues[1] == 0))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (2.25/3) * 100;
+	overallScore = 2.25 + overallScore;
+	user22.textContent = "Choice: Uppercase, Numbers, and Symbols ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing uppercase, numbers, and symbols increases the difficulty for hackers, but a username with a value larger than 8 is more effective.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+
+}
+else if (((returnValues[0] >= 8) && ((returnValues[2] >= 1) && (returnValues[1] == 0))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (2/3) * 100;
+	overallScore = 2 + overallScore;
+	user22.textContent = "Choice: Uppercase, Numbers, and Symbols ==> Although any username can easily be hacked in a matter of minutes by a hacker, utilizing uppercase, numbers, and symbols increases the difficulty for hackers, but it is not the most efficient username.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] >= 1) && (returnValues[2] >= 1))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (2/3) * 100;
+	overallScore = 2 + overallScore;
+	user22.textContent = "Choice: Uppercase, Lowercase, Numbers, and Symbols ==> Although any username can easily be hacked in a matter of minutes by a hacker, this is an effective username, but a username with a value larger than 8 would better protect your information.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] > 8) && ((returnValues[1] >= 1) && (returnValues[2] >= 1))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (1.85/3) * 100;
+	overallScore = 1.85 + overallScore;
+	user22.textContent = "Choice: Uppercase, Lowercase, Numbers, and Symbols ==> Although any username can easily be hacked in a matter of minutes by a hacker, this is the most effective username, besides using a security add-on, or two step verification method which is highly reccomended.";
+	user33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+
+
+// done up too one case lower or upper but just one + number >= and <= 8
+user.textContent = Math.round(score) + "%";
+
+
+
+score = 0;
+returnValues = checkCase(passResult);
+
+if (((returnValues[0] == returnValues[1]) && (returnValues[2] == 0)) && ((returnValues[3] == 0) && (returnValues[4] == 0))) {
+	score = (2.99/3) * 100;
+	overallScore = 3 + overallScore;
+	pass22.textContent = "Choice: Only Lowercase Letters ==> Although any pasword can easily be hacked in a matter of minutes by a hacker, just using lowercase letters represents an extremely easy target for a potential hacker.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if (((returnValues[0] == returnValues[2]) && (returnValues[1] == 0)) && ((returnValues[3] == 0) && (returnValues[4] == 0))) {
+	score = (2.99/3) * 100;
+	overallScore = 3 + overallScore;
+	pass22.textContent = "Choice: Only Uppercase Letters ==> Although any password can easily be hacked in a matter of minutes by a hacker, just using uppercase letters represents an extremely easy target for a potential hacker.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if ((((returnValues[0] <= 8) && (returnValues[0] >= 3)) && (returnValues[1] >= 1)) && ((returnValues[2] >= 1) && ((returnValues[3] == 0) && (returnValues[4] == 0)))) {
+	score = (2.95/3) * 100;
+	overallScore = 2.95 + overallScore;
+	pass22.textContent = "Choice: Upper and Lowercase Letters ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing just upper and lower case letters does not differentiate your password enough to present a challenge for hackers. Especially when it is a string with less than 8 values.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if ((((returnValues[0] >= 8) && (returnValues[0] >= 3)) && (returnValues[1] >= 1)) && ((returnValues[2] >= 1) && ((returnValues[3] == 0) && (returnValues[4] == 0)))) {
+	score = (2.90/3) * 100;
+	overallScore = 2.90 + overallScore;
+	pass22.textContent = "Choice: Upper and Lowercase Letters ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing just upper and lower case letters does not differentiate your password enough to present a challenge for hackers.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if (((returnValues[0] <= 8) && (((returnValues[1] >= 1) && (returnValues[2] == 0)) || ((returnValues[2] >= 1) && (returnValues[1] == 0)))) && ((returnValues[3] >= 1) && (returnValues[4] == 0)))   {
+	score = (2.95/3) * 100;
+	overallScore = 2.95 + overallScore;
+	pass22.textContent = "Choice: Lowercase Letters and Numbers ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing just lowercase letters and numbers does not differentiate your password enough to present a challenge for hackers. Especially when it is a string with less than 8 values.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if (((returnValues[0] >= 8) && (((returnValues[1] >= 1) && (returnValues[2] == 0)) || ((returnValues[2] >= 1) && (returnValues[1] == 0)))) && ((returnValues[3] >= 1) && (returnValues[4] == 0)))   {
+	score = (2.90/3) * 100;
+	overallScore = 2.90 + overallScore;
+	pass22.textContent = "Choice: Lowercase Letters and Numbers ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing just lowercase letters and numbers does not differentiate your password enough to present a challenge for hackers.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] >= 1) && (returnValues[2] == 0))) && ((returnValues[3] == 0) && (returnValues[4] >= 1)))   {
+	score = (2.95/3) * 100;
+	overallScore = 2.95 + overallScore;
+	pass22.textContent = "Choice: Lowercase Letters and Symbols ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing just lowercase letters and symbols does not differentiate your password enough to present a challenge for hackers. Especially when it is a string with less than 8 values.";
+	pass33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] >= 1) && (returnValues[2] == 0))) && ((returnValues[3] == 0) && (returnValues[4] >= 1)))   {
+	score = (2.90/3) * 100;
+	overallScore = 2.90 + overallScore;
+	pass22.textContent = "Choice: Lowercase Letters and Symbols ==> Although any pasword can easily be hacked in a matter of minutes by a hacker, utilizing just lowercase letters and symbols does not differentiate your password enough to present a challenge for hackers.";
+	pass33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] == 0) && (returnValues[2] >= 1))) && ((returnValues[3] == 0) && (returnValues[4] >= 1)))   {
+	score = (2.95/3) * 100;
+	overallScore = 2.95 + overallScore;
+	pass22.textContent = "Choice: Uppercase Letters and Symbols ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing just uppercase letters and symbols does not differentiate your password enough to present a challenge for hackers. Especially when it is a string with less than 8 values.";
+	pass33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] == 0) && (returnValues[2] >= 1))) && ((returnValues[3] == 0) && (returnValues[4] >= 1)))   {
+	score = (2.90/3) * 100;
+	overallScore = 2.90 + overallScore;
+	pass22.textContent = "Choice: Uppercase Letters and Symbols ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing just uppercase letters and symbols does not differentiate your password enough to present a challenge for hackers.";
+	pass33.innerHTML = universalLink.link("https://security.intuit.com/index.php/protect-your-information/password-username-best-practices");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] >= 1) && (returnValues[2] >= 1))) && ((returnValues[3] >= 1) && (returnValues[4] == 0)))   {
+	score = (2.75/3) * 100;
+	overallScore = 2.75 + overallScore;
+	pass22.textContent = "Choice: Uppercase, Lowercase, and Numbers ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing uppercase, lowercase, and numbers makes your password harder to crack, but not nearly hard enough with a string value less than 8.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] >= 1) && (returnValues[2] >= 1))) && ((returnValues[3] >= 1) && (returnValues[4] == 0)))   {
+	score = (2.5/3) * 100;
+	overallScore = 2.5 + overallScore;
+	pass22.textContent = "Choice: Uppercase, Lowercase, and Numbers ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing uppercase, lowercase, and numbers makes your password harder to crack, but not hard enough for an experienced hacker.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] >= 1) && (returnValues[2] == 0))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (2.25/3) * 100;
+	overallScore = 2.25 + overallScore;
+	pass22.textContent = "Choice: Lowercase, Numbers, and Symbols ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing lowercase, numbers, and symbols increases the difficulty for hackers, but a password with a value larger than 8 is more effective.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] >= 1) && (returnValues[2] == 0))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (2/3) * 100;
+	overallScore = 2 + overallScore;
+	pass22.textContent = "Choice: Lowercase, Numbers, and Symbols ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing lowercase, numbers, and symbols increases the difficulty for hackers, but it is not the most efficient password.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[2] >= 1) && (returnValues[1] == 0))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (2.25/3) * 100;
+	overallScore = 2.25 + overallScore;
+	pass22.textContent = "Choice: Uppercase, Numbers, and Symbols ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing uppercase, numbers, and symbols increases the difficulty for hackers, but a password with a value larger than 8 is more effective.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+
+}
+else if (((returnValues[0] >= 8) && ((returnValues[2] >= 1) && (returnValues[1] == 0))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (2/3) * 100;
+	overallScore = 2 + overallScore;
+	pass22.textContent = "Choice: Uppercase, Numbers, and Symbols ==> Although any password can easily be hacked in a matter of minutes by a hacker, utilizing uppercase, numbers, and symbols increases the difficulty for hackers, but it is not the most efficient password.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if (((returnValues[0] <= 8) && ((returnValues[1] >= 1) && (returnValues[2] >= 1))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (2/3) * 100;
+	overallScore = 2 + overallScore;
+	pass22.textContent = "Choice: Uppercase, Lowercase, Numbers, and Symbols ==> Although any password can easily be hacked in a matter of minutes by a hacker, this is an effective password, but a password with a value larger than 8 would better protect your information.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+else if (((returnValues[0] >= 8) && ((returnValues[1] >= 1) && (returnValues[2] >= 1))) && ((returnValues[3] >= 1) && (returnValues[4] >= 1)))   {
+	score = (1.85/3) * 100;
+	overallScore = 1.85 + overallScore;
+	pass22.textContent = "Choice: Uppercase, Lowercase, Numbers, and Symbols ==> Although any password can easily be hacked in a matter of minutes by a hacker, this is the most effective password, besides using a security add-on, or two step verification method which is highly reccomended.";
+	pass33.innerHTML = univeralPassLink.link("https://lifehacker.com/four-methods-to-create-a-secure-password-youll-actually-1601854240");
+}
+
+pass.textContent = Math.round(score) + "%";
+
+// end user and pass CODE !!!!!!!!!!!!!!!!!!!!!
+
+
+//begin internet connection code
+var intern = document.getElementById('intern1');
+var intern22 = document.getElementById('intern2');
+var intern33 = document.getElementById('intern3');
+var internetResult = parsed_qs.InternetLink;
+var internetScore = 0;
+var internetCheck;
+var internetCheck = ['dsl', 'cable', 'wireless', 'cellular'];
+var dslLink = "Become a DSL Expert!";
+var cableLink = "Protect your Cable Modem!";
+var wirelessLink = "Fortify you wireless connection!";
+var cellularLink = "Protect your data!";
+
+
+if (internetResult == internetCheck[0]) {
+	internetScore = (0.7/1) * 100;
+	overallScore = 0.7 + overallScore;
+	intern22.textContent = "ADSL router's are cheap devices with not much security investment, and not often updated by the average consumer.";
+	intern33.innerHTML = dslLink.link("http://whatis.techtarget.com/reference/Fast-Guide-to-DSL-Digital-Subscriber-Line");
+	
+}
+else if (internetResult == internetCheck[1]) {
+	internetScore = (0.6/1) * 100;
+	overallScore = 0.6 + overallScore;
+	intern22.textContent = "Cable modem's are always vulnerable to a malicious hack attack whenever the device is turned on, because they're constantly connected to the internet with an ultra-fast link.";
+	intern33.innerHTML = cableLink.link("https://www.webopedia.com/DidYouKnow/Internet/CableHack.asp");
+}
+else if (internetResult == internetCheck[2]) {
+	internetScore = (0.9/1) * 100;
+	overallScore = 0.9 + overallScore;
+	intern22.textContent = "Wireless connection's are most commonly used, and easily hacked for multiple reasons. Luckily there are many ways to also protect it from becoming hacked.";
+	intern33.innerHTML = wirelessLink.link("https://www.lifewire.com/how-to-hack-proof-your-wireless-router-2487654");
+}
+else if (internetResult == internetCheck[3]) {
+	internetScore = (0.99/1) * 100;
+	overallScore = 1 + overallScore;
+	intern22.textContent = "Cellular connection's are easy to hack, and very hard to protect.";
+	intern33.innerHTML = cellularLink.link("https://www.kaspersky.com/blog/hacking-cellular-networks/10633/");
+}
+
+intern.textContent = internetScore + "%";
+// browser
+
+// brows.textContent = parsed_qs.InternetLink;
+ // start formula for browser
+var brows = document.getElementById('brows1');
+var brows22 = document.getElementById('brows2');
+var brows33 = document.getElementById('brows3');
+var browserResult = parsed_qs.browserType;
+var browserScore = 0;
+var universalBrowsLink = "Browse safely!";
+
+if (browserResult == "chrome") {
+	browserScore = (0.1 / 0.5) * 100;
+	overallScore = 0.1 + overallScore;
+	brows22.textContent = "Choice: Chrome ==> Most popular browser nationwide, and close second to firefox in vulnerabilities. Yet, chrome updates every two weeks to close any security issues, and is relatively safe with extensions.";
+	brows33.innerHTML = universalBrowsLink.link("http://www.toptenreviews.com/software/articles/what-is-the-most-secure-browser/");
+
+}
+else if (browserResult == "safari") {
+	browserScore = (0.4 / 0.5) * 100;
+	overallScore = 0.4 + overallScore;
+	brows22.textContent = "Choice: Safari ==> Few vulnerabilities, but has the longest period between security updates which allows hackers to exploit it.";
+	brows33.innerHTML = universalBrowsLink.link("http://www.toptenreviews.com/software/articles/what-is-the-most-secure-browser/");
+}
+else if (browserResult == "firefox") {
+	browserScore = (0.4 / 0.5) * 100;
+	overallScore = 0.4 + overallScore;
+	brows22.textContent = "Choice: Firefox ==> Has most vulnerabilities in its code, but updates every 28 days to secure vulnerabilities, and has add-ons to protect users.";
+	brows33.innerHTML = universalBrowsLink.link("http://www.toptenreviews.com/software/articles/what-is-the-most-secure-browser/");
+}
+else if (browserResult == "internet") {
+	browserScore = (0.3 / 0.5) * 100;
+	overallScore = 0.3 + overallScore;
+	brows22.textContent = "Choice: Internet Explorer ==> Second most popular browser, and average in terms of vulnerabilities. Must be regularly updated, and certain add-ons like disconnect may help protect the user.";
+	brows33.innerHTML = universalBrowsLink.link("http://www.toptenreviews.com/software/articles/what-is-the-most-secure-browser/");
+}
+else if (browserResult == "microsoft") {
+	browserScore = (0.2 / 0.5) * 100;
+	overallScore = 0.2 + overallScore;
+	brows22.textContent = "Choice: Microsoft Edge ==> The next generation of Internet Explorer, but still has a long way to go in order to compete with the current top browsers.";
+	brows33.innerHTML = universalBrowsLink.link("http://www.toptenreviews.com/software/articles/what-is-the-most-secure-browser/");
+}
+else if (browserResult == "opera") {
+	browserScore = (0.3 / 0.5) * 100;
+	overallScore = 0.3 + overallScore;
+	brows22.textContent = "Choice: Opera ==> Appears to be the safest browser, but has a small market share, and security updates take about 50 days to fix, so hackers have significant time to exploit it.";
+	brows33.innerHTML = universalBrowsLink.link("http://www.toptenreviews.com/software/articles/what-is-the-most-secure-browser/");
+}
+else if (browserResult == "other") {
+	browserScore = (0.5 / 0.5) * 100;
+	overallScore = 0.5 + overallScore;
+	brows22.textContent = "Choice: Other ==> Most other browsers are less effective, and more vulnerable in comparison to the larger, and more updated browsers. We reccommend you browse on something else.";
+	brows33.innerHTML = universalBrowsLink.link("http://www.toptenreviews.com/software/articles/what-is-the-most-secure-browser/");
+}
+brows.textContent = browserScore + "%";
+
+
+// begin comp model code
+var comp = document.getElementById('comp1');
+var comp22 = document.getElementById('comp2');
+var comp33 = document.getElementById('comp3');
+var computerResult = parsed_qs.computerModel;
+var computerScore = 0;
+var computerCheck;
+var univeralCompLink = "Check out the best laptops of 2017!";
+var universalCompLink2 = "Tips!";
+computerCheck = ['macbook', 'MacbookAir', 'MacbookPro', 'acer', 'asus', 'lenovo', 'dell', 'microsoft', 'samsung', 'other'];
+if (computerResult == computerCheck[0]) {
+	computerScore = (0.3/1) * 100;
+	overallScore = 0.3 + overallScore;
+	comp22.textContent = "Choice: Apple's Mac ==> Always a steadfast and dependable computer with constant updates to its security, and performance. The mac is a great overall device for all kinds of work, and coding.";
+	comp33.innerHTML = univeralCompLink.link("http://www.techradar.com/news/mobile-computing/laptops/best-laptops-1304361");
+
+
+}
+else if (computerResult == computerCheck[1]) {
+	computerScore = (0.3/1) * 100;
+	overallScore = 0.3 + overallScore;
+	comp22.textContent = "Choice: Apple's Mac ==> Always a steadfast and dependable computer with constant updates to its security, and performance. The mac is a great overall device for all kinds of work, and coding.";
+	comp33.innerHTML = univeralCompLink.link("http://www.techradar.com/news/mobile-computing/laptops/best-laptops-1304361");
+
+}
+else if (computerResult == computerCheck[2]) {
+	computerScore = (0.3/1) * 100;
+	overallScore = 0.3 + overallScore;
+	comp22.textContent = "Choice: Apple's Mac ==> Always a steadfast and dependable computer with constant updates to its security, and performance. The mac is a great overall device for all kinds of work, and coding.";
+	comp33.innerHTML = univeralCompLink.link("http://www.techradar.com/news/mobile-computing/laptops/best-laptops-1304361");
+	
+}
+else if (computerResult == computerCheck[3]) {
+	computerScore = (0.6/1) * 100;
+	overallScore = 0.6 + overallScore;
+	comp22.textContent = "Choice: Acer ==> Excellent build quality, and at a superb value, with the right browser and security add-on's the Acer can become a solid, and secure laptop computer for the cheaper consumer.";
+	comp33.innerHTML = universalCompLink2.link("https://www.computerworld.com/article/3041073/security/surprising-tips-from-a-super-hacker.html");
+	
+}
+else if (computerResult == computerCheck[4]) {
+	computerScore = (0.6/1) * 100;
+	overallScore = 0.6 + overallScore;
+	comp22.textContent = "Choice: Asus ==> Often powerful computers great for gaming, and mostly secure. Reccommendations are to add as many of the premium security add-ons to your browser and settings that you can to protect yourself";
+	comp33.innerHTML = universalCompLink2.link("https://www.computerworld.com/article/3041073/security/surprising-tips-from-a-super-hacker.html");
+}
+else if (computerResult == computerCheck[5]) {
+	computerScore = (0.9/1) * 100;
+	overallScore = 0.9 + overallScore;
+	comp22.textContent = "Choice: Lenovo ==> Superb computer for the value, but not as powerful or protected as the bigger brands such as Windows and Apple.";
+	comp33.innerHTML = universalCompLink2.link("https://www.computerworld.com/article/3041073/security/surprising-tips-from-a-super-hacker.html");
+	
+}
+else if (computerResult == computerCheck[6]) {
+	computerScore = (0.8/1) * 100;
+	overallScore = 0.8 + overallScore;
+	comp22.textContent = "Choice: Dell ==> Top notch computer as of 2017 that is aesthetically pleasing along with its superb processing power and security.";
+	comp33.innerHTML = universalCompLink2.link("https://www.computerworld.com/article/3041073/security/surprising-tips-from-a-super-hacker.html");
+	
+}
+else if (computerResult == computerCheck[7]) {
+	computerScore = (0.99/1) * 100;
+	overallScore = 1 + overallScore;
+	comp22.textContent = "Choice: Microsoft ==> In comparison to other computers in price, processing power, and security, its quality and value is not up to par.";
+	comp33.innerHTML = universalCompLink2.link("https://www.computerworld.com/article/3041073/security/surprising-tips-from-a-super-hacker.html");
+	
+}
+else if (computerResult == computerCheck[8]) {
+	computerScore = (0.6/1) * 100;
+	overallScore = 0.6 + overallScore;
+	comp22.textContent = "Choice: Samsung ==> In comparison to other computers in price, processing power, and security, its quality and value is not up to par.";
+	comp33.innerHTML = universalCompLink2.link("https://www.computerworld.com/article/3041073/security/surprising-tips-from-a-super-hacker.html");
+	
+}
+else if (computerResult == computerCheck[9]) {
+	computerScore = (0.99/1) * 100;
+	overallScore = 1 + overallScore;
+	comp22.textContent = "Choice: Other ==> The computers offered before range in prices, and offer the best processing power, and therefore, security. It is reccommended that you look into one of those brands.";
+	comp33.innerHTML = univeralCompLink.link("http://www.techradar.com/news/mobile-computing/laptops/best-laptops-1304361");
+	
+}
+comp.textContent = computerScore + "%";
+
+
+//begin phone code
+var phon = document.getElementById('phone1');
+var phon22 = document.getElementById('phone2');
+var phon33 = document.getElementById('phone3');
+var phoneResult = parsed_qs.phoneModel;
+var phoneScore = 0;
+var phoneCheck;
+phoneCheck = ['sonyXperia', 'iphone7', 'iphone6', 'iphone5', 'google', 'samsung', 'other'];
+var googleIphoneLink = "What makes them safe!";
+var otherLink = "Priority number 1!";
+if (phoneResult == phoneCheck[0]) {
+	phoneScore = (0.9/1) * 100;
+	overallScore = 0.9 + overallScore;
+	phon22.textContent = "Choice: Sony ==> Although Android is an open-source which allows the easier implementation of malware, bugs and security breaches are also spotted much quicker by the community making Android devices relatively safer.";
+	phon33.innerHTML = otherLink.link("http://www.zdnet.com/article/the-worlds-most-secure-smartphones-and-why-theyre-all-androids/");
+	
+
+}
+else if (phoneResult == phoneCheck[1]) {
+	phoneScore = (0.3/1) * 100;
+	overallScore = 0.5 + overallScore;
+	phon22.textContent = "Choice: Apple Iphone ==> The multitasking allows malware to go easily unnoticed, but Apple has worked to resolve the privacy issues in the latest releases of IOS.";
+	phon33.innerHTML = googleIphoneLink.link("https://smartphones.gadgethacks.com/how-to/4-best-phones-for-privacy-security-0176106/");
+
+
+}
+else if (phoneResult == phoneCheck[2]) {
+	phoneScore = (0.3/1) * 100;
+	overallScore = 0.5 + overallScore;
+	phon22.textContent = "Choice: Apple Iphone ==> The multitasking allows malware to go easily unnoticed, but Apple has worked to resolve the privacy issues in the latest releases of IOS.";
+	phon33.innerHTML = googleIphoneLink.link("https://smartphones.gadgethacks.com/how-to/4-best-phones-for-privacy-security-0176106/");
+	
+}
+else if (phoneResult == phoneCheck[3]) {
+	phoneScore = (0.6/1) * 100;
+	overallScore = 0.7 + overallScore;
+	phon22.textContent = "Choice: Apple Iphone ==> The multitasking allows malware to go easily unnoticed, but Apple has worked to resolve the privacy issues in the latest releases of IOS.";
+	phon33.innerHTML = googleIphoneLink.link("https://smartphones.gadgethacks.com/how-to/4-best-phones-for-privacy-security-0176106/");
+	
+}
+else if (phoneResult == phoneCheck[4]) {
+	phoneScore = (0.5/1) * 100;
+	overallScore = 0.5 + overallScore;
+	phon22.textContent = "Choice: Google Pixel ==> Although Android is an open-source platform which allows users to easily insert malware, Google has done a great job of keeping their phone secure from viruses through multiple methods.";
+	phon33.innerHTML = googleIphoneLink.link("https://smartphones.gadgethacks.com/how-to/4-best-phones-for-privacy-security-0176106/");
+
+	
+}
+else if (phoneResult == phoneCheck[5]) {
+	phoneScore = (0.7/1) * 100;
+	overallScore = 0.7 + overallScore;
+	phon22.textContent = "Choice: Samsung ==> Although Android is an open-source which allows the easier implementation of malware, bugs and security breaches are also spotted much quicker by the community making Android devices relatively safer.";
+	phon33.innerHTML = otherLink.link("http://www.zdnet.com/article/the-worlds-most-secure-smartphones-and-why-theyre-all-androids/");
+
+	
+}
+else if (phoneResult == phoneCheck[6]) {
+	phoneScore = (0.99/1) * 100;
+	overallScore = 1 + overallScore;
+	phon22.textContent = "Choice: Other ==> The more popular brands of mobile phones are often updated for security breaches more, and focused on more. Our reccommendation is to choose one of those devices for mobile performance.";
+	phon33.innerHTML = otherLink.link("http://www.zdnet.com/article/the-worlds-most-secure-smartphones-and-why-theyre-all-androids/");
+
+	
+}
+phon.textContent = phoneScore + "%";
+
+// begin overallScore additions
+var hackedResult = parsed_qs.hackedBefore;
+if (hackedResult == "true") {
+	overallScore = overallScore + 1;
+}
+var numberDevicesResult = parsed_qs.numberOfDevices;
+if (numberDevicesResult == "1") {
+	overallScore = overallScore + 0.1;
+}
+else if (numberDevicesResult == "2") {
+	overallScore = overallScore + 0.2;
+}
+else if (numberDevicesResult == "3") {
+	overallScore = overallScore + 0.3;
+}
+else if (numberDevicesResult == "4") {
+	overallScore = overallScore + 0.4;
+}
+else if (numberDevicesResult == "5") {
+	overallScore = overallScore + 0.5;
+}
+else if (numberDevicesResult == "6") {
+	overallScore = overallScore + 0.6;
+}
+
+var regionResult = parsed_qs.region;
+var regionDiff;
+regionDiff = ['african', 'americas', 'asia', 'europe', 'mediterranean', 'pacific'];
+
+if (regionResult == regionDiff[0]) {
+	overallScore = overallScore + 0.4;
+}
+else if (regionResult == regionDiff[1]) {
+	overallScore = overallScore + 0.7;
+}
+else if (regionResult == regionDiff[2]) {
+	overallScore = overallScore + 0.8;
+}
+else if (regionResult == regionDiff[3]) {
+	overallScore = overallScore + 0.4;
+}
+else if (regionResult == regionDiff[4]) {
+	overallScore = overallScore + 0.2;
+}
+else if (regionResult == regionDiff[5]) {
+	overallScore = overallScore + 0.5;
+}
+
+var cityResult = parsed_qs.city;
+var cityDiff;
+cityDiff = ['United States', 'United States of America', 'USA', 'united states', 'Germany', 'germany', 'france', 'France', 'netherlands', 'Netherlands', 'italy', 'Italy', 'spain', 'Spain', 'japan', 'Japan', 'India', 'india', 'china', 'China', 'australia', 'Australia', 'thailand', 'Thailand', 'taiwan', 'Taiwan', 'nigeria', 'Nigeria'];
+
+if ((cityResult == cityDiff[0]) || (cityResult == cityDiff[1]) || (cityResult == cityDiff[2]) || (cityResult == cityDiff[3])) {
+	overallScore = overallScore + 1;
+}
+else if ((cityResult == cityDiff[4]) || (cityResult == cityDiff[5])) {
+	overallScore = overallScore + 0.8;
+}
+else if ((cityResult == cityDiff[5]) || (cityResult == cityDiff[6])) {
+	overallScore = overallScore + 0.8;
+}
+else if ((cityResult == cityDiff[7]) || (cityResult == cityDiff[8])) {
+	overallScore = overallScore + 0.6;
+}
+else if ((cityResult == cityDiff[9]) || (cityResult == cityDiff[10])) {
+	overallScore = overallScore + 0.7;
+}
+else if ((cityResult == cityDiff[11]) || (cityResult == cityDiff[12])) {
+	overallScore = overallScore + 1;
+}
+else if ((cityResult == cityDiff[13]) || (cityResult == cityDiff[14])) {
+	overallScore = overallScore + 0.7;
+}
+else if ((cityResult == cityDiff[15]) || (cityResult == cityDiff[16])) {
+	overallScore = overallScore + 0.6;
+}
+else if ((cityResult == cityDiff[17]) || (cityResult == cityDiff[18])) {
+	overallScore = overallScore + 0.6;
+}
+else if ((cityResult == cityDiff[19]) || (cityResult == cityDiff[20])) {
+	overallScore = overallScore + 0.7;
+}
+
+overallScore = Math.round((overallScore / 12) * 100);
+var over = document.getElementById('over1');
+var over22 = document.getElementById('over2');
+var over33 = document.getElementById('over3');
+var overallLink = "Protect, protect, protect.";
+over.textContent = overallScore + "%";
+over22.textContent = "Overall Score: Each separate element shown above factors into your overall score. Moreover, based on your input of region, country, and if you have been hacked before determines your overall score, which is why it may differ from what you think based on your individual scores shown above. I hope these results helps you better protect yourself in the future.";
+over33.innerHTML = overallLink.link("https://www.nytimes.com/interactive/2017/technology/how-to-protect-data-online.html");
+
+
+// map code
+     // object containing lating and pop
+    if (regionResult == "americas") {
+        var citymap = {
+        usa1: {
+          center: {lat: 61.200462, lng: -149.885338},
+        },
+        canada1: {
+          center: {lat: 49.253811, lng: -123.118493},
+        },
+        canada2: {
+          center: {lat: 45.522044, lng: -73.612552},
+        },
+        canada3: {
+          center: {lat: 46.25, lng: -71.1},
+        },
+        usa2: {
+        	center: {lat: 34.042700, lng: -118.292565}
+        },
+        usa3: {
+        	center: {lat: 32.5678, lng: -117.5321}
+        },
+        usa4: {
+        	center: {lat: 47.5678, lng: -122.3321}
+        },
+        usa5: {
+        	center: {lat: 45.5678, lng: -122.5321}
+        },
+        usa6: {
+        	center: {lat: 39.5678, lng: -94.5321}
+        },
+        usa7: {
+        	center: {lat: 30.2678, lng: -97.75321}
+        },
+        usa8: {
+        	center: {lat: 42.95678, lng: -74.05321}
+        },
+        usa9: {
+        	center: {lat: 35.15678, lng: -80.85321}
+        },
+        usa10: {
+        	center: {lat: 36.15678, lng: -86.75321}
+        },
+        usa11: {
+        	center: {lat: 27.95678, lng: -82.5321}
+        },
+        usa12: {
+        	center: {lat: 25.75678, lng: -80.15321}
+        },
+        usa13: {
+        	center: {lat: 30.35678, lng: -81.65321}
+        },
+        usa14: {
+        	center: {lat: 43.65678, lng: -79.35321}
+        },
+        mexico1: {
+        	center: {lat: 19.45678, lng: -99.15321}
+        },
+        mexico2: {
+        	center: {lat: 20.65678, lng: -103.5321}
+        },
+        guatemala1: {
+        	center: {lat: 14.65678, lng: -90.5321}
+        },
+        mexico3: {
+        	center: {lat: 21.15678, lng: -86.85321}
+        },
+        honduras1: {
+        	center: {lat: 14.05678, lng: -87.15321}
+        },
+        costaRica1: {
+        	center: {lat: 9.95678, lng: -84.05321}
+        },
+        colombia1: {
+        	center: {lat: 4.65678, lng: -74.05321}
+        },
+        colombia2: {
+        	center: {lat: 6.25678, lng: -75.5321}
+        },
+        venezuela1: {
+        	center: {lat: 10.5678, lng: -66.95321}
+        },
+        colombia3: {
+        	center: {lat: 9.5678, lng: -75.5321}
+        },
+        ecuador1: {
+        	center: {lat: -4.05678, lng: -79.25321}
+        },
+        peru1: {
+        	center: {lat: -5.05678, lng: -80.15321}
+        },
+        peru2: {
+        	center: {lat: -12.05678, lng: -77.05321}
+        },
+        peru3: {
+        	center: {lat: -16.45678, lng: -71.5321}
+        },
+        brazil1: {
+        	center: {lat: -25.45678, lng: -49.25321}
+        },
+        brazil2: {
+        	center: {lat: -27.25678, lng: -50.05321}
+        },
+        brazil3: {
+        	center: {lat: -8.95678, lng: -36.5321}
+        },
+        argentina1: {
+        	center: {lat: -34.6678, lng: -58.35321}
+        },
+        argentina2: {
+        	center: {lat: -32.95678, lng: -60.65321}
+        },
+        argentina3: {
+        	center: {lat: -41.15678, lng: -71.35321}
+        }
+      };
+  
+
+       function initMap() {
+      	//creat map
+      	var map = new google.maps.Map(document.getElementById('map'), {
+      		zoom: 3,
+      		center: {lat:39, lng: -98},
+      		mapTypeId: 'terrain'
+      	});
+      // circle for each
+      for (var city in citymap) {
+      	var cityCircle = new google.maps.Circle({
+      		strokeColor: '#FF0000',
+      		strokeOpacity: 0.8,
+      		strokeWeight: 2,
+      		fillColor: '#FF0000',
+      		fillOpacity: 0.35,
+      		map: map,
+      		center: citymap[city].center,
+      		radius: 100000
+      	});
+      }
+     }
+ }
+  else if (regionResult == "african") {
+
+  		var citymap = {
+        algeria1: {
+        	center: {lat: 35.25678, lng: 4.25321}
+        },
+        morocco1: {
+        	center: {lat: 32.25678, lng: -6.25321}
+        },
+        morocco2: {
+        	center: {lat: 34.05678, lng: -5.05321}
+        },
+        coteDVoire: {
+        	center: {lat: 5.35678, lng: -4.05321}
+        },
+        ghana1: {
+        	center: {lat: 5.15678, lng: -1.25321}
+        },
+        kenya1: {
+        	center: {lat: -1.35678, lng: 36.85321}
+        },
+        tanzania1: {
+        	center: {lat: -3.35678, lng: 35.65321}
+        },
+        southAfrica1: {
+        	center: {lat: -25.5678, lng: 28.25321}
+        },
+        southAfrica2: {
+        	center: {lat: -33.95678, lng: 18.45321}
+        },
+        israel1: {
+        	center: {lat: 31.75678, lng: 35.25321}
+        },
+        egypt1: {
+        	center: {lat: 30.05678, lng: 31.25321}
+        }
+    };
+
+    function initMap() {
+      	//creat map
+      	var map = new google.maps.Map(document.getElementById('map'), {
+      		zoom: 3,
+      		center: {lat:11, lng: 18},
+      		mapTypeId: 'terrain'
+      	});
+      // circle for each
+      for (var city in citymap) {
+      	var cityCircle = new google.maps.Circle({
+      		strokeColor: '#FF0000',
+      		strokeOpacity: 0.8,
+      		strokeWeight: 3,
+      		fillColor: '#FF0000',
+      		fillOpacity: 0.35,
+      		map: map,
+      		center: citymap[city].center,
+      		radius: 100000
+      	});
+      }
+     }
+}
+
+
+
+ else if (regionResult == "mediterranean") {
+
+ 		var citymap = {
+ 		morocco1: {
+        	center: {lat: 32.25678, lng: -6.25321},
+        	population: 100000000
+        },
+        morocco2: {
+        	center: {lat: 34.05678, lng: -5.05321},
+        	population: 100000000
+        },
+ 		egypt1: {
+        	center: {lat: 30.05678, lng: 31.25321},
+        	population: 100000000
+        },
+        saudiArabia1: {
+        	center: {lat: 21.35678, lng: 39.85321},
+        	population: 100000000
+        },
+        unitedArabEmirates1: {
+        	center: {lat: 25.15678, lng: 55.25321},
+        	population: 100000000
+        },
+        kuwait1: {
+        	center: {lat: 29.45678, lng: 47.5321},
+        	population: 100000000						 
+        },
+        iran1: {
+        	center: {lat: 35.85678, lng: 47.15321},
+        	population: 100000000						 
+        },
+        turkey1: {
+        	center: {lat: 41.05678, lng: 28.95321},
+        	population: 100000000
+        },
+        turkey2: {
+        	center: {lat: 40.15678, lng: 29.05321},
+        	population: 100000000
+        },
+        turkey3: {
+        	center: {lat: 39.65678, lng: 27.85321},
+        	population: 100000000
+        },
+        kazakhstan1: {
+        	center: {lat: 42.35678, lng: 69.5321},
+        	population: 100000000
+        },
+        uzbekistan1: {
+        	center: {lat: 41.25678, lng: 69.25321},
+        	population: 100000000
+        },
+        kazakhstan2: {
+        	center: {lat: 51.15678, lng: 71.45321},
+        	population: 200000000
+        },
+        kazakhstan3: {
+        	center: {lat: 50.25678, lng: 57.15321},
+        	population: 100000000
+        },
+        kazakhstan4: {
+        	center: {lat: 53.15678, lng: 64.05321},
+        	population: 100000000
+        },
+        uzbekistan2: {
+        	center: {lat: 38.85678, lng: 65.75321},
+        	population: 100000000
+        },
+        uzbekistan3: {
+        	center: {lat: 41.5678, lng: 60.65321},
+        	population: 100000000
+        },
+        afghan1: {
+        	center: {lat: 34.5678, lng: 69.25321},
+        	population: 100000000
+        },
+         pakistan1: {
+        	center: {lat: 33.75678, lng: 73.05321},
+        	population: 100000000
+        },
+        pakistan2: {
+        	center: {lat: 31.5678, lng: 74.35321},
+        	population: 100000000
+        },
+        pakistan3: {
+        	center: {lat: 30.15678, lng: 71.45321},
+        	population: 100000000
+        }
+    };
+
+    function initMap() {
+      	//creat map
+      	var map = new google.maps.Map(document.getElementById('map'), {
+      		zoom: 3,
+      		center: {lat:30, lng: 39},
+      		mapTypeId: 'terrain'
+      	});
+      // circle for each
+      for (var city in citymap) {
+      	var cityCircle = new google.maps.Circle({
+      		strokeColor: '#FF0000',
+      		strokeOpacity: 0.8,
+      		strokeWeight: 3,
+      		fillColor: '#FF0000',
+      		fillOpacity: 0.35,
+      		map: map,
+      		center: citymap[city].center,
+      		radius: Math.sqrt(citymap[city].population) * 10
+      	});
+      }
+     }
+}
+
+
+
+else if (regionResult == "europe") {
+		var citymap = {
+        macedonia1: {
+        	center: {lat: 41.35678, lng: 21.25321},
+        	population: 100000000
+        },
+        albania1: {
+        	center: {lat: 41.35678, lng: 19.85321},
+        	population: 100000000
+        },
+        spain1: {
+        	center: {lat: 36.75678, lng: -4.45321},
+        	population: 100000000
+        },
+        spain2: {
+        	center: {lat: 40.35678, lng: -3.65321},
+        	population: 100000000
+        },
+        portugal1: {
+        	center: {lat: 38.75678, lng: -9.15321},
+        	population: 100000000
+        },
+        france1: {
+        	center: {lat: 48.85678, lng: 2.35321},
+        	population: 100000000
+        },
+        france2: {
+        	center: {lat: 48.005678, lng: 0.15321},
+        	population: 100000000
+        },
+        france3: {
+        	center: {lat: 43.5678, lng: 1.45321},
+        	population: 100000000
+        },
+        france4: {
+        	center: {lat: 43.75678, lng: 7.45321},
+        	population: 100000000
+        },
+        france5: {
+        	center: {lat: 45.15678, lng: 5.75321},
+        	population: 100000000
+        },
+        russia1: {
+        	center: {lat: 55.45678, lng: 41.5321},
+        	population: 5000000000					 //russia all major pops
+        },
+        russia2: {
+        	center: {lat: 49.75678, lng: 136.95321},
+        	population: 100000000
+        },
+        belarus1: {
+            center: {lat: 53.85678, lng: 27.5321},
+        	population: 100000000
+        },
+        latvia: {
+        	center: {lat: 56.85678, lng: 25.65321},
+        	population: 100000000					 //latvia all
+        },
+        italy1: {
+        	center: {lat: 44.85678, lng: 8.25321},
+        	population: 100000000
+        },
+        italy2: {
+        	center: {lat: 45.05678, lng: 7.65321},
+        	population: 100000000
+        },
+        italy3: {
+        	center: {lat: 41.85678, lng: 12.45321},
+        	population: 100000000
+        },
+        france6: {
+        	center: {lat: 48.65678, lng: 6.15321},
+        	population: 100000000
+        },
+        uk1: {
+        	center: {lat: 51.45678, lng: -0.15321},
+        	population: 100000000
+        },
+        uk2: {
+        	center: {lat: 50.95678, lng: -1.45321},
+        	population: 100000000
+        },
+        uk3: {
+        	center: {lat: 51.35678, lng: -2.45321},
+        	population: 100000000
+        },
+        belgium1: {
+        	center: {lat: 50.85678, lng: 4.35321},
+        	population: 100000000
+        },
+        austria1: {
+        	center: {lat: 48.15678, lng: 16.35321},
+        	population: 100000000
+        },
+        poland1: {
+        	center: {lat: 50.05678, lng: 19.95321},
+        	population: 100000000
+        },
+        czechia1: {
+        	center: {lat: 50.05678, lng: 14.45321},
+        	population: 100000000
+        },
+        romania1: {
+        	center: {lat: 45.45678, lng: 28.05321},
+        	population: 100000000
+        },
+        romania2: {
+        	center: {lat: 44.35678, lng: 23.75321},
+        	population: 100000000
+        },
+        romania3: {
+        	center: {lat: 46.5678, lng: 24.5321},
+        	population: 100000000
+        },
+        serbia1: {
+        	center: {lat: 44.75678, lng: 20.45321},
+        	population: 100000000
+        },
+        serbia2: {
+        	center: {lat: 43.35678, lng: 21.85321},
+        	population: 100000000
+        },
+        ukraine1: {
+        	center: {lat: 47.85678, lng: 35.15321},
+        	population: 100000000
+        },
+        ukraine2: {
+        	center: {lat: 49.45678, lng: 26.985321},
+        	population: 100000000
+        },
+        germany: {
+        	center: {lat: 50.65678, lng: 10.15321},
+        	population: 800000000					 //all of germany
+        },
+        netherlands: {
+        	center: {lat: 52.15678, lng: 5.45321},
+        	population: 200000000						 //all of netherlands
+        },
+         finland1: {
+        	center: {lat: 60.25678, lng: 24.85321},
+        	population: 100000000
+        },
+        sweden1: {
+        	center: {lat: 59.35678, lng: 18.05321},
+        	population: 100000000
+        }
+     };
+
+     function initMap() {
+      	//creat map
+      	var map = new google.maps.Map(document.getElementById('map'), {
+      		zoom: 3,
+      		center: {lat:48, lng: 28},
+      		mapTypeId: 'terrain'
+      	});
+      // circle for each
+      for (var city in citymap) {
+      	var cityCircle = new google.maps.Circle({
+      		strokeColor: '#FF0000',
+      		strokeOpacity: 0.8,
+      		strokeWeight: 3,
+      		fillColor: '#FF0000',
+      		fillOpacity: 0.35,
+      		map: map,
+      		center: citymap[city].center,
+      		radius: Math.sqrt(citymap[city].population) * 10
+      	});
+      }
+     }
+}
+
+else if (regionResult == "asia") {
+	var citymap = {
+        india: {
+        	center: {lat: 21.5678, lng: 78.35321},
+        	population: 5000000000					 
+        },
+        nepal1: {
+        	center: {lat: 27.75678, lng: 85.35321},
+        	population: 100000000
+        },
+        bangladesh: {
+        	center: {lat: 23.65678, lng: 89.95321},
+        	population: 200000000   					 //all bangladesh
+        },
+        myanmar1: {
+        	center: {lat: 17.65678, lng: 96.6995321},
+        	population: 100000000
+        },
+        vietnam: {
+        	center: {lat: 12.95678, lng: 108.15321},
+        	population: 200000000							 //vietnam all 
+        },
+        laos1: {
+        	center: {lat: 19.85678, lng: 102.15321},
+        	population: 100000000
+        },
+        laos2: {
+        	center: {lat: 17.95678, lng: 102.65321},
+        	population: 100000000
+        },
+        thailand1: {
+        	center: {lat: 13.85678, lng: 100.45321},
+        	population: 100000000
+        },
+        thailand2: {
+        	center: {lat: 18.75678, lng: 99.05321},
+        	population: 100000000
+        },
+        cambodia1: {
+        	center: {lat: 11.5678, lng: 104.885321},
+        	population: 100000000
+        },
+        malaysia1: {
+        	center: {lat: 3.15678, lng: 101.65321},
+        	population: 100000000
+        },
+        singapore1: {
+        	center: {lat: 1.35678, lng: 103.85321},
+        	population: 100000000
+        },
+        indonesia1: {
+        	center: {lat: -6.25678, lng: 106.85321},
+        	population: 100000000
+        },
+        indonesia2: {
+        	center: {lat: -7.75678, lng: 112.35321},
+        	population: 100000000
+        },
+        indonesia3: {
+        	center: {lat: 0.45678, lng: 101.45321},
+        	population: 100000000
+        },
+        indonesia4: {
+        	center: {lat: 3.55678, lng: 98.65321},
+        	population: 100000000
+        }
+      };
+
+      function initMap() {
+      	//creat map
+      	var map = new google.maps.Map(document.getElementById('map'), {
+      		zoom: 3,
+      		center: {lat:2, lng: 128},
+      		mapTypeId: 'terrain'
+      	});
+      // circle for each
+      for (var city in citymap) {
+      	var cityCircle = new google.maps.Circle({
+      		strokeColor: '#FF0000',
+      		strokeOpacity: 0.8,
+      		strokeWeight: 3,
+      		fillColor: '#FF0000',
+      		fillOpacity: 0.35,
+      		map: map,
+      		center: citymap[city].center,
+      		radius: Math.sqrt(citymap[city].population) * 10
+      	});
+      }
+     }
+ }
+        
+
+else if (regionResult == "pacific") {
+	var citymap = {
+        china: {
+        	center: {lat: 28.15678, lng: 115.225321},
+        	population: 1790000000
+        },
+        mongolia1: {
+        	center: {lat: 47.85678, lng: 106.95321},
+        	population: 100000000
+        },
+        southKorea1: {
+        	center: {lat: 35.95678, lng: 128.45321},
+        	population: 100000000
+        },
+        southKorea2: {
+        	center: {lat: 37.65678, lng: 126.85321},
+        	population: 100000000
+        },
+        australia1: {
+        	center: {lat: -27.35678, lng: 133.65321},
+        	population: 100000000
+        },
+        australia2: {
+        	center: {lat: -32.05678, lng: 115.85321},
+        	population: 100000000
+        },
+        australia3: {
+        	center: {lat: -32.905678, lng: 151.735321},
+        	population: 100000000
+        },
+        japan1: {
+        	center: {lat: 35.65678, lng: 139.75321},
+        	population: 100000000
+        },
+        japan2: {
+        	center: {lat: 35.15678, lng: 136.95321},
+        	population: 100000000
+        },
+        japan3: {
+        	center: {lat: 35.005678, lng: 135.75321},
+        	population: 100000000
+        },
+        japan4: {
+        	center: {lat: 43.05678, lng: 141.35321},
+        	population: 100000000
+        },
+        philippines1: {
+        	center: {lat: 14.55678, lng: 120.985321},
+        	population: 100000000
+        }
+      
+      };
+
+      function initMap() {
+      	//creat map
+      	var map = new google.maps.Map(document.getElementById('map'), {
+      		zoom: 3,
+      		center: {lat:2, lng: 128},
+      		mapTypeId: 'terrain'
+      	});
+      // circle for each
+      for (var city in citymap) {
+      	var cityCircle = new google.maps.Circle({
+      		strokeColor: '#FF0000',
+      		strokeOpacity: 0.8,
+      		strokeWeight: 2,
+      		fillColor: '#FF0000',
+      		fillOpacity: 0.35,
+      		map: map,
+      		center: citymap[city].center,
+      		radius: Math.sqrt(citymap[city].population) * 10
+      	});
+      }
+     }
+  }
+   </script>
+ 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUGlXYi0IsM7Uq4DV3y0ZqXpWFSUOtrMU&callback=initMap"
+    async defer>
+    </script>
+
+<!-- END JAVASCRIPT -->
+
+
+	<footer>
+	<div class="footer">
+		<h2><em>Copyright Noah Kreiger 2017</em></h2>
+		<div class="footerLinks">
+			<nav>
+			<a href="cybit.html">Home</a>
+			<a href="cybitAbout.html">About</a>
+			</nav>
+		</div>
+	</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>New Rochelle Diner</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/hover-min.css">
+  <link rel="stylesheet" href="formalize.css" />
+<!-- put potential fonts here -->
+</head>
+<body>
+	<div class="color-one">
+		<div class="color-two">
+<!--BEGIN HEADER -->
+	<header>
+		<nav id="header-nav" class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- brand and toggle grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+
+      </button>
+      
+    </div>
+    <div class="visible-xs" id="number">
+      <a class="btn" href="tel:401-808-0367">
+        <span id="telephone-number"> Reserve: 401-808-0367</span></a>
+     </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-center" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" id="navbar-center">
+        <li id="animate"><a href="index.html">HOME</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="animate2">MENU <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-list">
+
+            <li><a href="#" onclick="$dc.loadFullMenu();">Full Menu</a></li>
+            <li role="separator" class="divider"></li>
+            <hr class="visible-xs">
+            <li><a href="#" onclick="$dc.loadBreakfast();">Breakfast</a></li>
+            <li><a href="#" onclick="$dc.loadSandwiches();">Sandwiches</a></li>
+            <li><a href="#" onclick="$dc.loadDinner();">Dinner</a></li>
+            <li><a href="#" onclick="$dc.loadDessert();">Desserts and Shakes</a></li>
+            
+          </ul>
+        </li>
+        <li id="animate"><a href="#" onclick="$dc.loadAbout();">ABOUT</a></li>
+        <li id="animate"><a href="#" onclick="$dc.loadContactUs();">CONTACT US</a></li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+    
+       
+  </div><!-- /.container-fluid -->
+</nav>
+	</header>
+
+	<!-- END HEADER -->
+
+
+	<div id="main-content" class="container"> </div> <!-- inject main content snippet with ajax -->
+
+<!-- BEGIN FOOTER -->
+	<footer class="panel-footer">
+		<div class="container">
+      <div class="row">
+        <section id="hours" class="col-sm-6">
+          <span>Hours:</span><br>
+          Sun-Thurs: 11:15am - 10:00pm<br>
+          Fri: 11:15am - 2:30pm<br>
+          Saturday Closed
+          <hr class="visible-xs">
+        </section>
+        <section id="address" class="col-sm-6">
+          <span>Address:</span><br>
+          <a href="https://www.google.com/maps/place/New+Rochelle+Diner/@40.9011232,-73.7950426,17z/data=!4m5!3m4!1s0x89c28da0b7dd0d8b:0x4208c9f953e3c5b4!8m2!3d40.9011192!4d-73.7928539" target="_blank">
+          7105 Reisterstown Road<br>
+          Baltimore, MD 21215</a>
+          <hr class="visible-xs">
+        </section>
+        
+      </div>
+      <div class="text-center">&copy; <em>New Rochelle Diner 2018</em></div>
+	</footer>
+
+<!-- END FOOTER -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/index-ajax.js"></script>
+  <script src="js/index.js"></script>
+  <script src="jquery.js"></script>
+  <script src="jquery.formalize.js"></script>
+</div>
+</div>
+</body>
+</html>

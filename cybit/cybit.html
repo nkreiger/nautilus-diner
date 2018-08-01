@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="vulnerableHTML">
+<head>
+	<title>Cybit Home Page</title>
+	<link rel="stylesheet" type="text/css" href="vulnerable.css" />
+	<link rel="stylesheet" href="formalize.css" />
+	<script src="jquery.js"></script>
+	<script src="jquery.formalize.js"></script>
+</head>
+<body class="vulnerableBody">
+	<header>
+		<div class="header">
+			<div class="headerLogo">
+				<img src="cybitLogo.png" alt="cybit logo" title="Logo" class="logo" >
+			</div>
+			<p id="headerText"> Make Security Great Again </p>
+			<div class="headerLinks">
+				<nav>
+				<a href="cybit.html">Home</a>
+				<a href="cybitAbout.html">About</a>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<!-- question code -->
+	<br /> <br />
+	<h1>A</h1><h4>re </h4><h3>Y</h3><h4>ou </h4><h3>A</h3><h4>t </h4>
+	<h3>R</h3><h4>isk?</h4>
+	<br />
+	<p class="note"><em>Note: </em>All information is optional, the more provided --> better data results.</p>
+	<hr />
+	<br />
+	<br />
+	<br />
+	<br />
+	<table id="homeTable" style="display: none;">
+	<form action="cybitResults.html" method="get" onclick='setThroughLink(this); return false;' enctype="multipart/form-data" class="cyberiskForm" bookmark="bookmark">
+		<tr>
+			<th colspan="3"> Data: </th>
+		</tr>
+		<tbody>
+			<tr>
+				<td class="tdphone"><em><b>Accounts</b></em></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="tdcomp"><em><b>Social Media</b></em></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="tdsocial"><em><b>Devices</b></em></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td> 
+					Rate: 
+					<input type="text" name="rate" size="15" maxlength="30" placeholder="Rate Me! 1-10" 
+					id="fake" style="z-index: 0;" />
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Username:  <input type="text" name="username" size="15" maxlength="30" placeholder="Alphanum123/$&" 
+					id="username" /> </td>
+				<td>Password: <input type="password" name="password" size="15" maxlength="30" placeholder="Alphanum123/$&" 
+					id="password" /> </td>
+			</tr>
+			<tr>
+				<td>Country: <input type="text" name="city" size="15" maxlength="30" placeholder="United States" 
+					id="state" /> </td>
+				<td>Region: 
+					<select id="region" name="region">
+					<optgroup label="Major Regions:">
+					<option value="african">African Region</option>
+					<option value="americas">Region of the Americas</option>
+					<option value="asia">South-East Asia Region</option>
+					<option value="europe">European Region</option>
+					<option value="mediterranean">Eastern Mediterranean Region</option>
+					<option value="pacific">Western Pacific Region</option>
+				</optgroup>
+					</select>
+					 </td>
+				<td>Zip-Code: <input type="text" name="zipcode" size="15" maxlength="30" placeholder="02852" 
+					id="zipcode" /> </td>
+			</tr>
+			<tr>
+				<td>Computer Model: 
+					<select id="compModel" name="computerModel">
+       					<optgroup label="Computers">
+          					<option value="macbook">Macbook</option>
+          					<option value="MacbookAir">Macbook Air</option>
+          					<option value="MacbookPro">Macbook Pro</option>
+          					<option value="acer">Acer</option>
+          					<option value="asus">Asus</option>
+          					<option value="lenovo">Lenovo Think Pad</option>
+          					<option value="dell">Dell XPS</option>
+          					<option value="microsoft">Microsoft Windows</option>
+          					<option value="samsung">Samsung Notebook</option>
+          					<option value="other">Other</option>
+        				</optgroup>
+   					</select>
+				</td>
+				<td>Phone Model: 
+					<select id="phoneModel" name="phoneModel">
+       					<optgroup label="Phones">
+          					<option value="sonyXperia">Sony Xperia</option>
+          					<option value="iphone7">Iphone 7</option>
+          					<option value="iphone6">Iphone 6/s/e</option>
+          					<option value="iphone5">Iphone 5</option>
+          					<option value="google">Google Pixel</option>
+          					<option value="samsung">Samsung Galaxy</option>
+          					<option value="other">Other</option>
+        				</optgroup>
+   					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Number of Device's: 
+					<select id="numberOfDevices" name="numberOfDevices">
+       					<optgroup label="Number's">
+          					<option value="1">1</option>
+          					<option value="2">2</option>
+          					<option value="3">3</option>
+          					<option value="4">4</option>
+          					<option value="5">5</option>
+          					<option value="6">More than 5</option>
+        				</optgroup>
+   					</select>
+      			</td>
+			</tr>
+			<tr>
+				<td>Hacked Before: <input type="checkbox" name="hackedBefore" value="true" id="check" checked=“checked” /> </td>
+			</tr>
+			<tr>
+				<td>Browser: <select id="browserType" name="browserType">
+       					<optgroup label="Broswers">
+          					<option value="chrome">Google Chrome</option>
+          					<option value="safari">Safari</option>
+          					<option value="firefox">Firefox</option>
+          					<option value="internet">Internet Explorer</option>
+          					<option value="microsoft">Microsoft Edge</option>
+          					<option value="opera">Opera</option>
+          					<option value="other">Other</option>
+        				</optgroup>
+   					</select>
+				</td>
+				<td>Internet Linking Method: <select id="internetLink" name="InternetLink">
+       					<optgroup label="Internet Links">
+          					<option value="dsl">Digital Subscriber Line</option>
+          					<option value="cable">Cable</option>
+          					<option value="wireless">Wireless</option>
+          					<option value="cellular">Cellular</option>
+        				</optgroup>
+   					</select>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td> <input type="submit" value="Submit" style="font-size: 16px; font-weight: bold; color: black;"/> </td>
+			</tr>
+		</tfoot>
+	</form>
+	</table>
+	<p id="userInfoText"> The purpose of this application is to statistically determine how at risk your social media, bank accounts, email,...etc are from hackers. All the information submitted is not saved by Cybit, it is only to help you from being hacked. In addition, if you ever want to reset just click the Home button above or below! The more information provided, the better we will be at determining how at risk you are, and the best ways to help you. Please click the button when you are ready, and fill out the form to the best of your ability!
+	Best,
+	Cybit.
+</p>
+	<button id="buttonEvent" onclick="javascript:showDiv();">I'm Ready!</button>
+	<script>
+		function showDiv() {
+			div = document.getElementById('homeTable');
+			button = document.getElementById('buttonEvent');
+			paragraph = document.getElementById('userInfoText');
+			div.style.display="inline-block";
+			button.style.display="none";
+			paragraph.style.display="none";
+		}
+	</script>
+
+	<footer>
+	<div class="footer">
+		<h2><em>Copyright Noah Kreiger 2017</em></h2>
+		<div class="footerLinks">
+			<nav>
+			<a href="cybit.html">Home</a>
+			<a href="cybitAbout.html">About</a>
+			</nav>
+		</div>
+	</div>
+	</footer>
+</body>
+</html>

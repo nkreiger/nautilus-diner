@@ -1,0 +1,97 @@
+* {
+	box-sizing: border-box;
+}
+.html {
+	margin: 0;
+	padding: 0;
+}
+.body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+/* desktop view */
+@media (min-width: 992px) {
+	.box {
+	width: 30%;
+	float: left;
+	margin-left: 28px;
+	background-color: grey;
+	overflow: hidden;
+	padding: 8px;
+	border: 3px solid black;
+	text-align: left;
+}
+.title {
+	position: relative;
+	margin-left: 80%;
+	border: 3px solid black;
+	text-align: center;
+	height: 35px;
+	width: 24%;
+	margin-top: -11px;
+	border-collapse: top;
+	background-color: red;
+}
+
+}
+/* tablet view */
+@media (min-width: 768px) and (max-width: 991px) {
+		.box {
+	width: 40%;
+	float: left;
+	margin-left: 57px;
+	background-color: grey;
+	overflow: hidden;
+	padding: 8px;
+	border: 3px solid black;
+	text-align: left;
+}
+.title {
+	position: relative;
+	margin-left: 80%;
+	border: 3px solid black;
+	text-align: center;
+	height: 35px;
+	width: 24%;
+	margin-top: -11px;
+	border-collapse: top;
+	background-color: red;
+}
+.box.boxSpecial {
+	margin-top: 10%;
+	width: 86.5%;
+	
+}
+.title.titleSpecial {
+	margin-left: 80%;
+}
+
+}
+/* mobile view */
+@media (max-width: 767px) {
+		.box {
+	width: 88%;
+	float: left;
+	margin-left: 28px;
+	background-color: grey;
+	overflow: hidden;
+	padding: 8px;
+	border: 3px solid black;
+	text-align: left;
+	margin-top: 3%;
+}
+.title {
+	position: relative;
+	margin-left: 80%;
+	border: 3px solid black;
+	text-align: center;
+	height: 35px;
+	width: 23%;
+	margin-top: -11px;
+	border-collapse: top;
+	background-color: red;
+	
+}
+
+}

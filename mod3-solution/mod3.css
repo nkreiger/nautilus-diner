@@ -1,0 +1,41 @@
+* {
+	box-sizing: border-box;
+}
+html {
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+div.container div {
+	
+}
+
+div.container div.title {
+	background: red;
+	position: relative;
+	text-align: center;
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.h3 {
+	color: blue;
+}
+
+#care {
+	background: grey;
+}
+@media (min-width: 768px) {
+	div.container div {
+		margin-bottom: 20px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	div.container div {
+		
+	}
+}
